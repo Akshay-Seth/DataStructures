@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     public void MovePlayer(Vector3 newPosition)
     {
         Vector3 oldPosition = transform.position;
-        ICommand moveCommand = new MoveCommand(this.gameObject, oldPosition, newPosition);
-        undoRedoManager.ExecuteCommand(moveCommand);
+        ICommand command = new MoveCommand(this.gameObject, oldPosition, newPosition);
+        undoRedoManager.ExecuteCommand(command);
     }
 
     // Update is called once per frame
@@ -19,16 +19,19 @@ public class Player : MonoBehaviour
         {
             Vector3 newPosition = transform.position + Vector3.forward;
             MovePlayer(newPosition);
+            return;
         }
 
         if (Input.GetKeyDown(KeyCode.U))
         {
             undoRedoManager.Undo();
+            return;
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             undoRedoManager.Redo();
+            return;
         }
     }
 }
