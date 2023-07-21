@@ -19,14 +19,15 @@ public class GraphNode : MonoBehaviour
         //Adding all the edges to the node
         foreach (GraphEdge edge in FindObjectsOfType(typeof(GraphEdge)))
         {
-            //if (edge.)
-            //{
-
-            //}
+            if (edge.fromNode == this || edge.toNode == this)
+            {
+                edges.Add(edge);
+                Debug.Log("Added "  + gameObject.name);
+            }
         }
     }
     void Update()
     {
-        _graphNodeName.transform.position = transform.position + Vector3.up * 1.2f;
+        _graphNodeName.transform.position = transform.position + Vector3.up * 0.8f;
     }
 }

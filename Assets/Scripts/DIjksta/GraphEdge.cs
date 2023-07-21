@@ -31,7 +31,7 @@ public class GraphEdge : MonoBehaviour
     void DrawLine()
     {
         _line.SetPosition(0,fromNode.transform.position);
-        _line.SetPosition(0,toNode.transform.position);
-        _costText.transform.position = (fromNode.transform.position + toNode.transform.position) / 2 + Vector3.up * 1.2f; ;
+        _line.SetPosition(1,toNode.transform.position);
+        _costText.transform.position = (fromNode.transform.position + toNode.transform.position) / 2 + Vector3.up * 0.4f; ;
     }
 }
